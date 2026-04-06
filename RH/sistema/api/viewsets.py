@@ -2,6 +2,7 @@
 # de Listar, Criar, Ver Detalhes, Editar e Deletar prontas.
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
+from drf_spectacular.utils import extend_schema
 
 # 2. Importa o "Tradutor" (Serializer) criado na pasta API.
 from sistema.api import serializers
@@ -9,6 +10,7 @@ from sistema.api import serializers
 # 3. Importa a "Planta do Banco" (Models) para saber onde buscar os dados.
 from sistema import models
 
+@extend_schema(tags=['Funcionários'])
 # 4. Criamos a Classe. O nome "Funcionarioviewsets" é usado no Router (urls.py).
 class Funcionarioviewsets(viewsets.ModelViewSet):
 
