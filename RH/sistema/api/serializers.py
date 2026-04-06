@@ -19,3 +19,14 @@ class funcionarioSerializer(serializers.ModelSerializer):
     class Meta:
         model = Funcionario
         fields = "__all__"
+
+def validate_cpf(self, value):
+        cpf_limpo = value.replace('.', '').replace('-', '')
+
+        if len(cpf_limpo) != 11:
+            raise serializers.ValidationError("O CPF deve ter 11 dígitos.")
+        
+        if cpf_limpo == cpf_limpo[0] * 11:
+            raise serializers.ValidationError("CPF inválido (números repetidos).")
+
+        return value
