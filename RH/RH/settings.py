@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'sistema',
     'rest_framework',
     'drf_spectacular',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -65,6 +66,11 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
     ],
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter', # Habilita busca por texto (Ex: ?search=Guilherme)
+        'rest_framework.filters.OrderingFilter', # Habilita ordenação (Ex: ?ordering=salario)
+    ],
 }
 
 SPECTACULAR_SETTINGS = {
