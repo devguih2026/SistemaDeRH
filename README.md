@@ -43,6 +43,8 @@ cd nome-do-repositorio
 
 2: Crie e ative o ambiente virtual:
 python -m venv venv
+
+
 # No Windows:
 .\venv\Scripts\activate
 
